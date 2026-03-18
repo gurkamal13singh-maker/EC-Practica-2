@@ -1,4 +1,4 @@
-	.data
+		.data
 result: .word 0
 num:	.byte '7'
 
@@ -42,10 +42,11 @@ exec2:
 	j fi
 
 else2:
-	li $t1, '-1'     # t1 = -1
+	li $t1, -1     # t1 = -1
 	la $t2, result    #t2 = @result
 	sw $t1, 0($t2)      #result = -1
 
 fi:
 	jr $ra
+
 
