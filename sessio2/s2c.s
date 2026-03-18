@@ -79,7 +79,7 @@ for2:
 	addiu $s2, $s2, 1
 	b for2
 
-etiq2:
+etq2:
 	move $v0, $s3      # return max
 	lw $s0, 40($sp)
 	lw $s1, 44($sp)
@@ -115,7 +115,12 @@ update:
 	move $v0, $a1
 	b fi
 
+else:
 	move $v0, $a2
+
+fi:
+	addiu $sp, $sp, 16
+	jr $ra
 
 fi:
 	addiu $sp, $sp, 16
