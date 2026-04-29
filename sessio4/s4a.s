@@ -34,7 +34,13 @@ main:
 	jr	$ra
 
 
+# void descompon(int cf, int *s, int *e, int *m)
 descompon:
 
+# float compon(int signo, int exponent, int mantissa)
 compon:
-
+    sll  $a0, $a0, 31           # signo = signo << 31;
+    sll  $a1, $a1, 23           # exponent = exponent << 23;
+    or   $v0, $a0, $a1          # float result = signo | exponent;
+    or   $v0, $v0, $a2          # result = result | mantissa;
+    jr   $ra                    # return result;
